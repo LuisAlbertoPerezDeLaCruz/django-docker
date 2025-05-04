@@ -1,0 +1,14 @@
+# Inicialmente se realizó el build solo para el servicio (container) web.
+docker-compose up --build
+
+# Ejecutar comandos dentro del container
+docker exec django_app_web python --version
+docker exec django_app_web python manage.py migrate
+
+# De forma interactiva
+docker exec -it django_app_web python manage.py createsuperuser
+docker exec -it postgres_db psql -U luis_perez -d dv_database
+docker exec -it django_app_web python manage.py shell
+
+# Hacer entrypoint.sh ejecutable
+chmod +x entrypoint.sh
