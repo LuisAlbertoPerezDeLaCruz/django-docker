@@ -19,6 +19,8 @@ RUN chmod +x /entrypoint.sh
 
 EXPOSE 8000
 
-CMD [ "/entrypoint.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
+
+CMD ["gunicorn", "django_docker_demo.wsgi:application", "--bind", "0.0.0.0:8000"]
 
 # CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]  

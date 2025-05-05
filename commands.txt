@@ -9,6 +9,7 @@ docker exec django_app_web python manage.py migrate
 docker exec -it django_app_web python manage.py createsuperuser
 docker exec -it postgres_db psql -U luis_perez -d dv_database
 docker exec -it django_app_web python manage.py shell
+docker-compose exec web sh
 
 # Hacer entrypoint.sh ejecutable
 chmod +x entrypoint.sh
