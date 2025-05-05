@@ -13,8 +13,12 @@ RUN pip install -r requirements.txt
 
 COPY ./src/ .
 
+COPY ./entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
+
 EXPOSE 8000
 
-CMD [ "./entrypoint.sh" ]
+CMD [ "/entrypoint.sh" ]
 
-
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]  

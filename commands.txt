@@ -12,3 +12,7 @@ docker exec -it django_app_web python manage.py shell
 
 # Hacer entrypoint.sh ejecutable
 chmod +x entrypoint.sh
+
+# Bajar el containner y volverlo a subir
+docker-compose down -v 
+ocker-compose up --build
